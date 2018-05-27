@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>TypeScript – An Introduction</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Jhankar Mahbub">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+	<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h3>Introduction</h3>
+				<h5>to</h5>
+				<h1>Typescript</h1>
+				<br>
+				<br>
+				<p>
+					<small>
+						<a href="http://thatjsdude.com/">www.thatJSDude.com</a>
+					</small>
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>Who is</h2>
+					<h1>JS Dude?</h1>
+				</section>
+				<section>
+					<img src="./images/others/dude.jpeg" alt="">
+					<ul>
+						<li style="color:purple">
+							<strong>@jsdude005</strong>
+						</li>
+						<li>Organize Chicago JavaScript meetup</li>
+						<li>Sr. Web Developer, Nielsen</li>
+						<li>Enjoy Learning, talking about JavaScript</li>
+						<!-- <li>Twin Cities code camp in 2013, 2014</li> -->
+					</ul>
+				</section>
+				<section>
+					<h2>Jump from 14,000ft </h2>
+					<img src="./images/others/jump.JPG" alt="">
+				</section>
+				<!-- <section>
+					<img src="./images/others/skydiving.JPG" alt="">
+				</section> -->
+				<section>
+					<h2>Chicago Marathon 2016, 2017</h2>
+					<img src="./images/others/marathon.jpg" alt="">
+				</section>
+				<section>
+					<h2>10,000 volts</h2>
+					<img src="./images/others/mudder.jpg" alt="">
+				</section>
+				<section>
+					<h4>international Javascript conference, London</h4>
+					<img src="./images//others//london.jpg" alt="">
+				</section>
+			</section>
+			<section>
+				<h2>We will cover</h2>
+				<ol>
+					<li>Why you should consider Typescript</li>
+					<li class="fragment">How to run Typescript</li>
+					<li class="fragment">Features in typescript (excluding ES6)</li>
+					<li class="fragment">Use Typescript with popular framework</li>
+					<li class="fragment">When not to use Typescript</li>
+
+				</ol>
+			</section>
+			<section>
+				<section>
+					<h1>What is Typescript</h1>
+				</section>
+				<section>
+					<h2>Typescript</h2>
+					<ul>
+						<li>Strong Typing </li>
+						<li>Compile time checking</li>
+						<li>Better linting</li>
+						<li>Better tooling (intellisense, refactor)</li>
+						<li>Extra features (Decorator, Access modifier)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Typescript is a super set</h2>
+					<img src="./images//venn-es5-es6-typescript.png" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>When to consider Typescript</h2>
+				</section>
+				<section>
+					<p>Uncaught TypeError: Cannot read property</p>
+					<img src="./images//type-error.png" alt="">
+					<ul class="fragment">
+						<li class="fragment">Not getting data in the right format</li>
+						<li class="fragment">React: Improper initialization of state</li>
+						<li class="fragment">Angular2+: parsing template before data binding</li>
+					</ul>
+					<br>
+					<br>
+					<p>
+						<small>
+							<a href="https://rollbar.com/blog/top-10-javascript-errors/">Top 10 JavaScript errors from 1000+ projects </a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Top 10 JS errors</h2>
+					<img src="./images/errors.png" alt="">
+				</section>
+				<section>
+					<h2>Other cases</h2>
+					<ul>
+						<li>Large projects</li>
+						<li class="fragment">External modules and libraries</li>
+						<li class="fragment">.Net or Java background</li>						
+						<li class="fragment">Javascript future features(ES7)</li>
+						<li class="fragment">Angular2</li>
+						<li class="fragment">Your manager told you to use it</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Install Typescript</h1>
+				</section>
+				<section>
+					<h2>Install Typescript</h2>
+					<br>
+					<br>
+					<pre class="typescript"><code data-trim>
+									npm install -g typescript
+							</code></pre>
+					<pre class="fragment typescript"><code data-trim>
+									tsc hello.ts
+							</code></pre>
+				</section>
+				<section>
+					<ul>
+						<li>typescript playground</li>
+						<li>VS code tooling</li>
+						<li>webpack plugin</li>
+						<li>tsconfig.json</li>
+					</ul>
+					<br>
+					<br>
+					<p><small><a target="_blank" href="https://www.typescriptlang.org/play/">typescriptlang.org/play</a></small></p>
+				</section>
+			</section>
+			<section>
+				<h1>Let's start</h1>
+			</section>
+			<section>
+				<section>
+					<h2>Basic types</h2>
+					<ul>
+						<li>boolean</li>
+						<li>number</li>
+						<li>string</li>
+						<li>Array</li>
+						<li>union type</li>
+						<li>Any</li>
+					</ul>
+				</section>
+				<section>
+					<h2>boolean</h2>
+					<pre class="typescript"><code data-trim>
+							let safeToCallSickDay: boolean = true;
+							safeToCallSickDay = false;
+							
+							
+							let salary:number = 50000
+							salary = 60000
+							
+							let actor: string = 'Tom Hanks';
+							
+							let nums: number[] = [1, 2, 3, 4, 5]
+							let friends:string[] 
+							        = ['BatMan', 'CatMan', 'FatMan', 'GoatMan']
+						</code></pre>
+					<pre class="fragment typescript"><code data-trim>
+							
+let names: string | string[];
+names = "JS Dude"
+names = ['Tom cruise', 'Tom Hancks', 'Tom nobody']
+						</code></pre>
+				</section>
+				<section>
+					<h2>Any</h2>
+					<pre class="typescript"><code data-trim>
+								let notSure: any = 4;
+								notSure = "maybe a string instead";
+								notSure = false; // okay, definitely a boolean
+						</code></pre>
+					<pre class="typescript"><code data-trim>
+								let list: any[] = [1, true, "free"];
+	
+								list[1] = 100;
+								
+						</code></Pre>
+				</section>
+				<section>
+					<h2>Basic types</h2>
+					<ul>
+						<li>Tuple</li>
+						<li>Enum</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Tuple</h2>
+					<pre class="typescript"><code data-trim>
+							let salaryBox: [string, number];
+
+							salaryBox = ['GoatMan', 1000]
+							
+							
+							
+							type IDictionary = [sting, number];
+							let salaryBox: IDictionary = ['GoatMan', 22000];
+							
+					</code></pre>
+					<aside class="notes">
+						<p>Tuple types allow you to express an array where the type of a fixed number of elements is known, </p>
+						<p>but need not be the same. </p>
+					</aside>
+				</section>
+				<section>
+					<h2>Enum</h2>
+					<p>Give friendly names to sets of numeric values</p>
+					<pre class="typescript"><code data-trim>
+
+							enum Color {Red, Green, Blue}
+							let c: Color = Color.Green;
+
+							let colorName: string = Color[2];
+							alert(colorName); // Displays 'Green' as its value is 2 above
+					</code></pre>
+					<pre class="fragment typescript"><code data-trim>
+enum Color {Red = 1, Green, Blue}
+enum Color {Red = 1, Green = 2, Blue = 4}
+let c: Color = Color.Green;
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Basic types</h2>
+					<ul>
+						<li>Void</li>
+						<li>Null</li>
+						<li>Undefined</li>
+						<li>Never</li>
+					</ul>
+				</section>
+				<section>
+					<pre class="typescript"><code data-trim>
+							function warnUser(): void {
+							   alert("This is my warning message");
+							}
+					</code></pre>
+					<pre class="typescript"><code data-trim>
+							let u: undefined = undefined;
+							let n: null = null;
+					</code></pre>
+				</section>
+				<section>
+					<h2>Never</h2>
+					<pre class="typescript"><code data-trim>
+							// Function returning never must have unreachable end point
+							function infiniteLoop(): never {
+								while (true) {
+								}
+							}
+							
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Function</h1>
+				</section>
+				<section>
+					<pre class="typescript"><code data-trim>
+							function add(x: number, y: number): number {
+							  return x + y;
+							}
+							
+							let abc = (x: number): number => 2 * x;
+
+							let def: number = abc(20);
+					</code></pre>
+					<pre class="fragment typescript"><code data-trim>
+							function add(x: number, y: number): void {
+							  console.log(x + y);
+							}
+					</code></pre>
+				</section>
+				<section>
+					<h2>Optional Parameter</h2>
+					<pre class="typescript"><code data-trim>
+							function buildName(firstName: string, lastName?: string) {
+							  if (lastName)
+							    return firstName + " " + lastName;
+							  else
+							    return firstName;
+							}
+							
+							let result1 = buildName("Bob");                  
+							let result3 = buildName("Bob", "Adams");       
+							// error, too many parameters  
+							let result2 = buildName("Bob", "Adams", "Sr.");
+					</code></pre>
+					<p>Any optional parameters must follow required parameters. </p>
+				</section>
+				<section>
+					<h2>Default Parameter</h2>
+					<pre class="typescript"><code data-trim>
+							function buildName(firstName: string, lastName = "Smith") {
+							  return firstName + " " + lastName;
+							}
+							
+							let result1 = buildName("Bob");                  
+							let result2 = buildName("Bob", undefined);       
+							let result4 = buildName("Bob", "Adams");         
+					</code></pre>
+					<p>Default-initialized parameters that come after all required parameters are treated as optional, </p>
+				</section>
+				<!-- <section>
+					<h2>Rest Parameters</h2>
+					<pre class="typescript"><code data-trim>
+							function buildName(firstName: string, ...restOfName: string[]) {
+								return firstName + " " + restOfName.join(" ");
+							}
+							
+							let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+					</code></pre>
+				</section> -->
+			</section>
+			<section>
+				<section>
+					<h2>Quiz Time</h2>
+				</section>
+				<section>
+					<p>What is Never type?</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Interface</h1>
+				</section>
+				<section>
+					<h2>interface</h2>
+					<ul>
+						<li>Define contracts</li>
+						<li>While loading backend data</li>
+						<li>Properties that are require</li>
+						<li>It's okay to have extra properties</li>
+						<li>Describe the public side of the class</li>
+						<li class="fragment">TypeScript uses interfaces solely for type-checking purposes.</li>
+					</ul>
+				</section>
+				<section>
+					<pre class="typescript"><code data-trim>
+							interface iUser{
+								readonly id: number
+								name?:string
+							}
+							
+							function userLoaded(user: iUser): void{
+								console.log(user.id);
+							}
+							
+							
+							userLoaded({ id: 22 });
+					</code></pre>
+				</section>
+				<section>
+					<h2>Readonly properties</h2>
+					<p>only modifiable when the object is first created</p>
+					<pre class="typescript"><code data-trim>
+							interface Point {
+								readonly x: number;
+								readonly y: number;
+							}
+					</code></pre>
+					<pre class="typescript"><code data-trim>
+							let p1: Point = { x: 10, y: 20 };
+							p1.x = 5; // error
+					</code></pre>
+					<p class="fragment">Variables use const whereas properties use readonly.
+
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Classes</h1>
+					(mostly in ES6)
+				</section>
+				<section>
+					<pre class="typescript"><code data-trim>
+							class Greeter {
+							  greeting: string;
+
+							  constructor(message: string) {
+							    this.greeting = message;
+							  }
+							  greet() {
+							    return "Hello, " + this.greeting;
+							  }
+							}
+							
+							let greeter = new Greeter("world");
+					</code></pre>
+					<p> each member is public by default</p>
+					<aside class="notes">
+						<p>Compare with ES6</p>
+					</aside>
+				</section>
+				<section>
+					<h4>Private</h4>
+					<pre class="typescript"><code data-trim>
+						class Animal {
+						  private name: string;
+
+						  constructor(theName: string) { 
+						    this.name = theName; 
+						  }
+						}
+						
+						new Animal("Cat").name; // Error: 'name' is private;
+					</code></pre>
+					<p>private member cannot be accessed from outside of its containing class.</p>
+				</section>
+				<section>
+					<h5>Protected</h5>
+					<pre class="typescript"><code data-trim>
+							class Person {
+							  protected name: string;
+							  constructor(name: string) { this.name = name; }
+							}
+					</code></pre>
+					<pre class="typescript"><code data-trim>
+							class Employee extends Person {
+							  private department: string;
+							  constructor(name: string, department: string) {
+							    super(name);
+							    this.department = department;
+							  }
+							
+							  public getElevatorPitch() {
+							    return `Hello, my name is ${this.name}`;
+							  }
+							}
+					</code></pre>
+					<pre class="typescript"><code data-trim>
+							let howard = new Employee("Howard", "Sales");
+							console.log(howard.getElevatorPitch());
+							console.log(howard.name); // error
+					</code></pre>
+					<small>Protected members are like private</small>
+					<small>Can also be accessed within deriving classes</small>
+				</section>
+				<section>
+					<h2>Readonly modifier</h2>
+					<pre class="typescript"><code data-trim>
+							class Octopus {
+							  readonly name: string;
+							  readonly numberOfLegs: number = 8;
+							  constructor (theName: string) {
+							    this.name = theName;
+							  }
+							}
+
+							let dad = new Octopus("Man with the 8 strong legs");
+							
+							// error! name is readonly.
+							dad.name = "Man with the 3-piece suit"; 
+							
+					</code></pre>
+					<br>
+					<small>Readonly properties must be initialized at their declaration or in the constructor.</small>
+					
+				</section>
+				<section>
+					<h2>Abstract Classes</h2>
+					<pre class="typescript"><code data-trim>
+							abstract class Department {
+
+							  constructor(public name: string) {
+							  }
+							
+							  printName(): void {
+							    console.log("Department name: " + this.name);
+							  }
+							  // must be implemented in derived classes
+							  abstract printMeeting(): void; 
+							}
+					</code></pre>
+					<p><small> Unlike an interface, an abstract class may contain implementation details for its members. </small></p>
+					<p><small></small></p>
+				</section>
+				<section>
+					<h2>Mixins</h2>
+					<pre class="typescript"><code data-trim>
+							class Disposable {
+							  isDisposed: boolean;
+							  dispose() {
+							    this.isDisposed = true;
+							  }
+							}
+					</code></pre>
+					<pre class="typescript"><code data-trim>
+							class Activatable {
+							  isActive: boolean;
+							  activate() {
+							    this.isActive = true;
+							  }
+							  deactivate() {
+							    this.isActive = false;
+							  }
+							}
+					</code></pre>
+					<pre class="fragment typescript"><code data-trim>
+							class SmartObject implements Disposable, Activatable {}
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Decorator</h1>
+				</section>
+				<section>
+					<p>Decorator is a special kind of declaration that can be attached to</p>
+					<ul>
+						<li>Class</li>
+						<li>Method</li>
+						<li>Accessor</li>
+						<li>property or parameter</li>
+					</ul>
+					<p>use the form @expression</p>
+				</section>
+				<section>
+					<h3>Class Decorator</h3>
+					<img src="./images//angular-component.png" alt="">
+					<p>
+						<small>
+							<a href="https://www.typescriptlang.org/docs/handbook/decorators.html">decorator</a>
+						</small>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Quiz Time</h2>
+					<br>
+					<br>
+					<br>
+					<p>How to run typescript in the command line?</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Use with other framework</h1>
+				</section>
+				<section>
+					<h3>React</h3>
+					<pre class="batch"><code data-trim>
+						npm install -g create-react-app
+
+						create-react-app my-app --scripts-version=react-scripts-ts
+						cd my-app/
+						npm start
+					</code></pre>
+					<p>use .tsx instead of .jsx</p>
+					<p>
+						<small>
+							<a href="https://github.com/wmonk/create-react-app-typescript">create-react-app-typescript</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Angular</h2>
+					<pre><code data-trim>
+							npm install -g @angular/cli
+							ng new PROJECT-NAME
+							cd PROJECT-NAME
+							ng serve
+					</code></pre>
+					<br>
+					<p>
+						<small>
+							<a href="https://github.com/angular/angular-cli">angular cli</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<img src="./images//trend.png" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Typescript tooling</h1>
+				</section>
+				<section>
+					<ul>
+						<li>tsconfig</li>
+						<li>TSLint</li>
+						<li>webpack plugin</li>
+						<li>VS Code plugin</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Debugging</h1>
+				</section>
+			</section>
+			<section>
+				<h2>Typescript features isn't in ES6</h2>
+				<ul>
+					<li>Decorators</li>
+					<li>Abstract classes</li>
+					<li>Namespace (Module)</li>
+					<li>Enums</li>
+					<li>Generics and Static typing</li>
+					<li>Interfaces</li>
+					<li>Optional properties and arguments</li>
+					<li>Function overloads</li>
+					<li>Access modifiers</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Benefits of Typescript</h3>
+				<ul>
+					<li>Advanced autocompletion</li>
+					<li>Helps navigation, and refactoring</li>
+					<li>Best tooling</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Downside of Typescript</h3>
+				<ul>
+					<li>Type correctness does not guarantee program correctness</li>
+					<li>Static types don’t reduce over-all bug density by much</li>
+					<li>Might create more syntax noise</li>
+					<li>Harder to Generic functions & polymorphism Higher order functions Object composition</li>
+					<li>Static types are overrated</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h1>Async Await</h1>
+				</section>
+				<section>
+					<h2>Promise</h2>
+				</section>
+				<section>
+					<pre><code data-trim>
+						function doubleAfter2Sec(x){
+							return new Promise(resolve =>{
+								setTimeout(()=>{
+									resolve(x*2);
+								}, 2000)
+							});
+						}
+					</code></pre>
+					<pre class="fragment">
+						<code data-trim>
+							doubleAfter2Sec(10).then((r)=>{
+								console.log(r);
+							})
+						</code>
+					</pre>
+				</section>
+				<section>
+					<pre class="javascript"><code data-trim>
+							let sum =   doubleAfter2Seconds(10)
+							+ doubleAfter2Seconds(20)
+							+ doubleAfter2Seconds(30);
+				  console.log(sum);
+				  // undefined
+					</code></pre>
+					<pre class="javascript"><code data-trim>
+						function addPromise(x){
+							return new Promise(resolve => {
+							  doubleAfter2Seconds(10).then((a) => {
+								doubleAfter2Seconds(20).then((b) => {
+								  doubleAfter2Seconds(30).then((c) => {
+									resolve(x + a + b + c);
+								  })
+								})
+							  })
+							});
+						  }
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim>
+							async function addAsync(x) {
+								const a = await doubleAfter2Seconds(10);
+								const b = await doubleAfter2Seconds(20);
+								const c = await doubleAfter2Seconds(30);
+								return x + a + b + c;
+							  }
+					</code></pre>
+					<br><br>
+					<p><small><a href="https://codeburst.io/javascript-es-2017-learn-async-await-by-example-48acc58bad65">async await by example</a></small></p>
+				</section>
+				<section>
+						<pre><code data-trim>
+							function add(x, y){
+							  return x + y;
+							}
+						</code></pre>
+						<pre class="javascript fragment"><code data-trim>
+							async function add(x,y){
+							  return x + y;
+							}
+						</code></pre>
+					</section>
+			</section>
+			<section>
+				<section>
+					<h1>Learn New thing</h1>
+				</section>
+				<section>
+					<h2>Learn react by building</h2>
+					<ul>
+						<li>Build an
+							<a href="https://ema-john.firebaseapp.com/">e-commerce site</a>
+						</li>
+						<li>
+						</li>
+					</ul>
+					<img style="height:350px;" src="./images/others/workshop1.jpg" alt="">
+				</section>
+				<section>
+					<p>thatjsdude.com/workshops/react</p>
+					Email:
+							<span style="color:lightcoral">khan4019@gmail.com</span>
+				</section>
+			</section>
+			<section>
+				<h2>References</h2>
+				<ul>
+					<li><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">Typescript Handbook</a></li>
+					<li>
+						<a href="https://basarat.gitbooks.io/typescript/">
+							Typescript deep dive</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=5UPMqtrbw7E">Introduction to TypeScript</a>
+					</li>
+					<li>
+						<a href="https://codeburst.io/strict-types-typescript-flow-javascript-to-be-or-not-to-be-959d2d20c007">Strict Types: Typescript</a>
+					</li>
+					<li>
+						<a href="https://eng.lyft.com/typescript-at-lyft-64f0702346ea">TypeScript at Lyft</a>
+					</li>
+					<li>
+						<a href="https://medium.com/javascript-scene/the-shocking-secret-about-static-types-514d39bf30a3">The Shocking Secret About Static Types</a></li>
+					<li>
+						<a href="https://medium.com/javascript-scene/you-might-not-need-typescript-or-static-types-aa7cb670a77b">You Might Not Need TypeScript</a>
+					</li>
+				</ul>
+			</section>
+			<section style="text-align: left;">
+				<h1>Thank you</h1>
+				<p>
+					<!---Follow:
+						 <a href="">@jsDude005</a> and <a href="">@karinaIslam1</a> -->
+					<p>-Website:
+						<a href="http://thatjsdude.com">thatjsude.com</a>
+					</p>
+					<p>-workshop:
+							<a href="http://thatjsdude.com/workshops/react/">thatjsdude.com/workshops/react/</a>
+						</p>
+					<p>-Youtube:
+						<a href="https://www.youtube.com/c/ThatJSDude">youtube.com/c/ThatJSDude</a>
+					</p>
+					<small>-Email:
+						<a href="https://twitter.com/jsdude005">khan4019@gmail.com</a>
+					</small>
+
+				</p>
+			</section>
+
+		</div>
+
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/search/search.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
