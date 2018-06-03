@@ -151,3 +151,8 @@ iframe.graphiql {
   padding-right: 20px;
   padding-bottom: 20px;
 }
+
+.code-parts{
+  float: left; 
+  width: 50%
+}
