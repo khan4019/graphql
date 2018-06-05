@@ -276,7 +276,9 @@
 					<p>
 						<a target="_blank" href="https://legacy.graphqlbin.com/RVIn">online</a>
 					</p>
-					<p><a  target="_blank" href="https://developer.github.com/v4/explorer/">github graphQL</a></p>
+					<p>
+						<a target="_blank" href="https://developer.github.com/v4/explorer/">github graphQL</a>
+					</p>
 					<p>
 						<a href="https://github.com/prismagraphql/graphql-playground">GraphQL IDE</a>
 					</p>
@@ -304,9 +306,14 @@
 					<h2>Aliases</h2>
 					<img src="./images/alias.png" alt="">
 					<br>
-					<p><small><a href="https://graphql.github.io/learn/queries/#aliases">Aliases</a></small></p>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/queries/#aliases">Aliases</a>
+						</small>
+					</p>
 					<aside class="notes">
-						<p>In the above example, the two hero fields would have conflicted, but since we can alias them to different names, we can get both results in one request.</p>
+						<p>In the above example, the two hero fields would have conflicted, but since we can alias them to different names, we
+							can get both results in one request.</p>
 					</aside>
 				</section>
 				<section>
@@ -314,7 +321,11 @@
 					<p>Don't Repeat use fragments</p>
 					<img src="./images/fragment.png" alt="">
 					<br>
-					<p><small><a href="https://graphql.github.io/learn/queries/#fragments">Fragments</a></small></p>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/queries/#fragments">Fragments</a>
+						</small>
+					</p>
 				</section>
 				<section>
 					<h2>Operation name</h2>
@@ -349,7 +360,9 @@
 				<section>
 					<p>GraphQL can be used with any backend framework or programming language</p>
 					<p>
-						<small><a href="https://graphql.github.io/learn/schema/">type</a></small>
+						<small>
+							<a href="https://graphql.github.io/learn/schema/">type</a>
+						</small>
 					</p>
 				</section>
 			</section>
@@ -363,18 +376,17 @@
 					</p>
 				</section>
 			</section>
-			
+
 			<section>
 				<section>
 					<h2>Mutation</h2>
 				</section>
 				<section>
-					<p><small><a href="https://graphql.github.io/learn/queries/#mutations">Mutation</a></small></p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Meta Field</h2>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/queries/#mutations">Mutation</a>
+						</small>
+					</p>
 				</section>
 			</section>
 			<section>
@@ -398,17 +410,116 @@
 				</section>
 			</section>
 			<section>
+				<section>
+					<h1>Execution</h1>
+					<aside class="notes">
+						<p>After being validated, a GraphQL query is executed by a GraphQL server which returns a result that mirrors the shape of the requested query, typically as JSON.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Execution</h2>
+					<img src="./images/execution.png" alt="">
+					<aside class="notes">
+						<p>GraphQL cannot execute a query without a type system, </p>
+						<p>let's use an example type system to illustrate executing a query. </p>
+						<p>This is a part of the same type system used throughout the examples in these articles:</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Resolver</h2>
+					<img src="./images/execution2.png" alt="">
+					<ul>
+						<li>Each field on each type is backed by a function called the resolver</li>
+						<li class="fragment">resolver which is provided by the GraphQL server developer.</li>
+						<li class="fragment">When a field is executed, the corresponding resolver is called to produce the next value.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Advanced Resolver</h2>
+					<ul>
+						<li class="fragment">Root fields & resolvers</li>
+						<li class="fragment">Asynchronous resolvers</li>
+						<li class="fragment">Trivial resolvers</li>
+						<li class="fragment">Scalar coercion</li>
+						<li class="fragment">List resolvers</li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Producing the Result</h2>
+					<ul>
+						<li class="fragment">As each field is resolved, the resulting value is placed into a key-value map</li>
+						<li class="fragment">field name (or alias) as the key</li>
+						<li class="fragment">the resolved value as the value</li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Meta Field</h2>
+				</section>
+			</section>
+
+			<section>
 				<h2>Other important point</h2>
 				<ul>
-					<li>Serving over Http</li>
+					<li></li>
 					<li>
 						<a href="https://graphql.github.io/learn/authorization/">Authorization</a>
 					</li>
 					<li>Caching</li>
 					<li>
-						<a href="https://graphql.github.io/learn/thinking-in-graphs/">Thinking in Graphs</a>
+						
 					</li>
 				</ul>
+			</section>
+			<section>
+				<section>
+					<h1>Serving over Http</h1>
+				</section>
+				<section>
+					<ul>
+						<li>GraphQL should be placed after all authentication middleware</li>
+					</ul>
+					<br>
+					<p><small><a href="https://graphql.github.io/learn/serving-over-http/">Serve over http</a></small></p>
+				</section>
+				<section>
+					<h2>GET</h2>
+				</section>
+				<section>
+					<h2>POST</h2>
+				</section>
+				<section>
+					<h2>Response</h2>
+				</section>
+				<section>GraphiQL</section>
+			</section>
+			<section>
+				<section>
+					<h1>Caching</h1>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">REST have end point and you can cache based on parameter</li>
+						<li class="fragment">GraphQL doesn't have uniquely identifiable end point</li>
+						<li class="fragment">Assign Globally unique ID</li>
+					</ul>
+					<img src="./images/uniqueId.png" alt="">
+					<br>
+					<p><small><a href="https://graphql.github.io/learn/caching/">Caching</a></small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Thinking in GraphQL</h2>
+					<br>
+					<p><small><a href="https://graphql.github.io/learn/thinking-in-graphs/">Thinking in Graphs</a></small></p>
+				</section>
 			</section>
 			<section>
 				<h2>Graph QL with Javascript</h2>
@@ -416,6 +527,7 @@
 					<a href="https://graphql.github.io/graphql-js/">writing in javascript</a>
 				</p>
 			</section>
+			
 			<section>
 				<section>
 					<h2>Rest VS GraphQL</h2>
@@ -572,26 +684,26 @@
 				</ul>
 			</section>
 			<section>
-					<h2>Resources</h2>
-					<ul>
-						<li>
-							<a href="https://www.youtube.com/watch?v=lAJWHHUz8_8">Fun fun Fun video</a>
-						</li>
-						<li>
-							<a href="https://www.youtube.com/watch?v=RMtq0RCLuzs">Fun fun fun more video</a>
-						</li>
-						<li>
-							<a href="https://www.udemy.com/introduction-to-graphql-and-apollo-building-modern-apis/learn/v4/t/lecture/8702302?start=0">Udemy Free course</a>
-						</li>
-						<li>
-							<a href="https://githubengineering.com/the-github-graphql-api/">Githup api</a>
-						</li>
-						<li>
-							<a href=""></a>
-						</li>
-					</ul>
-				</section>
-				
+				<h2>Resources</h2>
+				<ul>
+					<li>
+						<a href="https://www.youtube.com/watch?v=lAJWHHUz8_8">Fun fun Fun video</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=RMtq0RCLuzs">Fun fun fun more video</a>
+					</li>
+					<li>
+						<a href="https://www.udemy.com/introduction-to-graphql-and-apollo-building-modern-apis/learn/v4/t/lecture/8702302?start=0">Udemy Free course</a>
+					</li>
+					<li>
+						<a href="https://githubengineering.com/the-github-graphql-api/">Githup api</a>
+					</li>
+					<li>
+						<a href=""></a>
+					</li>
+				</ul>
+			</section>
+
 			<section style="text-align: left;">
 				<h1>Thank you</h1>
 				<p>
