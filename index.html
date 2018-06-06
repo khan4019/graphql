@@ -43,17 +43,16 @@
 
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
-			<section data-background="#D45CA2" class="first-slide">
+			<section data-background="" class="first-slide1">
 				<img src="images/graphql-white.svg" class="logo-image" />
-
 				<h1>GraphQL</h1>
 				<h5>for</h5>
 				<h3>Absolute Beginners</h3>
+				<br>
 				<p style="font-size: 70%; opacity: 0.5" class="normal-font">
 					by Jhankar Mahbub /
 					<a href="https://twitter.com/jsdude005">@jsdude005</a>
 				</p>
-				<br>
 				<p>
 					<small>
 						<a href="http://thatjsdude.com/">www.thatJSDude.com</a>
@@ -98,8 +97,9 @@
 				</section>
 			</section>
 			<section>
-				<h2>We will cover</h2>
+				<h2>We will Discuss</h2>
 				<ol>
+					<li>What is GraphQL</li>
 					<li>Why you should consider GraphQL</li>
 					<li class="fragment">How to run GraphQL Query</li>
 					<li class="fragment">Features in GraphQL</li>
@@ -144,12 +144,11 @@
 						<li>Very Rigid server contract</li>
 						<li class="fragment">More url and more complicated</li>
 						<li class="fragment">Slow, complex</li>
-						<li class="fragment">Over fetching of data</li>
-						<li class="fragment">Under Fetching</li>
-						<li class="fragment">Less versioning contract</li>
-						<li class="fragment">Or create new API</li>
+						<li class="fragment">Over fetching or under fetching of data</li>
+						<li class="fragment">Less versioning contract Or create new API</li>
 					</ul>
 					<br>
+					<img src="./images/rip.jpg" alt="" class="fragment medium-image">
 					<p class="fragment">
 						<a href="https://www.howtographql.com/basics/1-graphql-is-the-better-rest/">Rest: Rest in peace</a>
 					</p>
@@ -195,9 +194,9 @@
 					<h2>Why GraphQL</h2>
 					<ul>
 						<li>More Efficient, Flexible and Powerful</li>
-						<li>Rapid iteration, without changing API</li>
-						<li>Strong Type System: Schema Definition Language (SDL)</li>
-						<li></li>
+						<li class="fragment">Rapid iteration, without changing API</li>
+						<li class="fragment">Strong Type System: Schema Definition Language (SDL)</li>
+						<li class="fragment">Validate queries</li>
 					</ul>
 					<p>
 						<small>
@@ -241,7 +240,7 @@
 								{
 								  hero {
 								    name,
-								    appearsIn
+								    id
 								  }
 								}
 							</code></pre>

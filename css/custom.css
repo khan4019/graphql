@@ -13,7 +13,9 @@
 a {
   color: #dc7676 !important;
 }
-
+.medium-image{
+  height: 400px;
+}
 img, .logo-image {
   border: none !important;
   box-shadow: none !important;
@@ -22,12 +24,13 @@ img, .logo-image {
 
 .logo-image {
   opacity: 0.7;
+  background-color:#E10098 !important;
   max-width: 15% !important;
   max-height: 15% !important;
 }
 
 backquote, .reveal p, .reveal li, #credit {
-  font-family: "fira-sans-2"; !important;
+  font-family: "fira-sans-2" !important;
   font-weight: 300 !important;
 }
 
@@ -36,7 +39,7 @@ backquote {
   font-weight: 100 !important;
 }
 
-.first-slide p, .first-slide a, .first-slide h1, .first-slide h2, .first-slide li {
+.first-slide p, .first-slide a, .first-slide h1, .first-slide h2, .first-slide h5, .first-slide li {
   color: #FFFFFF !important;
   opacity: 0.7;
 }
