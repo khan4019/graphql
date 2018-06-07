@@ -256,16 +256,6 @@
 									}
 							</code></pre>
 				</section>
-				<section>
-					<h2>Response Structure</h2>
-					<pre style="float: left; width: 50%"><code data-trim class="javascript">
-						  
-							</code></pre>
-
-					<pre style="float: left; width: 50%" class="fragment fade-in" data-fragment-index="1"><code data-trim class="javascript">
-						  
-							</code></pre>
-				</section>
 			</section>
 			<section>
 				<section>
@@ -622,23 +612,58 @@
 			</section>
 			<section>
 				<section>
+					<h2>Client side integration</h2>
 				</section>
 				<section>
+					<h2>Apollo</h2>
+					<ul>
+						<li class="fragment">Declarative data fetching</li>
+						<li class="fragment">Zero-config caching</li>
+						<li class="fragment">Combine local & remote data</li>
+						<li class="fragment">Vibrant ecosystem</li>
+					</ul>
+					<p><small><a href="https://open.nytimes.com/the-new-york-times-now-on-apollo-b9a78a5038c?gi=3cba5d3ecd63">Relay Vs Apollo</a></small></p>
+				</section>
+				<section>
+					<h2>Apollo Client</h2>
+					<pre><code>
+import ApolloClient from 'apollo-boost';
 
+const client = new ApolloClient();
+					</code></pre>
+					<p class="fragment">/graphql</p>
+					<pre class="fragment"><code>
+import ApolloClient from 'apollo-boost';
+
+const client = new ApolloClient({
+	uri: 'https://graphql.example.com'
+});
+					</code></pre>
+					<p><small><a href="https://github.com/apollographql/apollo-client">Apollo Client</a></small></p>
+				</section>
+				<section>
+					<img src="./images/apollo.png" alt="">
+				</section>
+				<section>
+					<img src="./images/apolloReact.png" alt="">
+				</section>
+				<section>
+					<img src="./images/react-apollo.png" alt="">
+					<p><small><a href="https://www.apollographql.com/docs/react/essentials/queries.html">Apollo Queries</a></small></p>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h2>Tools</h2>
+					<h1>GraphQL Server</h1>
 				</section>
 				<section>
-					<p>Relay</p>
-					<p>Apollo</p>
+				<img src="./images/graphqljs.png" alt="">
+					<p><small><a href="https://graphql.org/code/">Server libraries</a></small></p>
 				</section>
-			</section>
-			<section>
 				<section>
-					<h1>Use with other framework</h1>
+					<img src="./images/graphene.png" alt="">
+					<p><small><a href="https://dev-blog.apollodata.com/tutorial-building-a-graphql-server-cddaa023c035">How to build GraphQL Server</a></small></p>
+					<p><small><a href="https://blog.graph.cool/graphql-server-basics-the-network-layer-51d97d21861">GraphQL Server Basic</a></small></p>
 				</section>
 			</section>
 			<section>
@@ -650,8 +675,6 @@
 					<ul>
 						<li>Build an
 							<a href="https://ema-john.firebaseapp.com/">e-commerce site</a>
-						</li>
-						<li>
 						</li>
 					</ul>
 					<img style="height:350px;" src="./images/others/workshop1.jpg" alt="">
