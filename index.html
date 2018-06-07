@@ -63,13 +63,11 @@
 				<h2>Todo</h2>
 				<ol>
 					<li>order the slides</li>
-					<li>REST vs GraphQL</li>
+					<li>REST vs GraphQL: delete put</li>
 					<li>Security</li>
 					<li>Thinking in GraphQL</li>
 					<li>When to consider GraphQL</li>
 					<li>Type: is it same both places then remove duplicate</li>
-					<li>More about Query: meta field, mutation</li>
-					<li>Clear mutation</li>
 					<li>Authentication: </li>
 				</ol>
 			</section>
@@ -378,10 +376,14 @@
 						<a href="https://graphql.github.io/learn/queries/">here full page</a>
 					</p>
 				</section>
-			</section>
-			<section>
 				<section>
 					<h2>Meta Field</h2>
+					<ul>
+						<li class="fragment">determine how to handle that data on the client</li>
+						<li class="fragment">request __typename, a meta field, at any point in a query</li>
+						<li class="fragment">will return the name of the object type </li>
+					</ul>
+					<img src="./images/metaField.png" alt="">
 				</section>
 			</section>
 			<section>
@@ -389,11 +391,36 @@
 					<h2>Mutation</h2>
 				</section>
 				<section>
+					<h2>Mutation</h2>
+					<p>Mutation is changing data. similar to POST</p>
+					<ul>
+						<li class="fragment">Don't use Get request to modify data</li>
+						<li class="fragment">Use nested field to get return from mutation</li>
+					</ul>
+					<img src="./images/mutation.png" alt="">
 					<p>
 						<small>
 							<a href="https://graphql.github.io/learn/queries/#mutations">Mutation</a>
 						</small>
 					</p>
+					<aside class="notes">
+						<p>Note how createReview field returns the stars and commentary fields of the newly created review. This is especially useful when mutating existing data, for example, when incrementing a field, since we can mutate and query the new value of the field with one request.
+
+								</p>
+								<p>You might also notice that, in this example, the review variable we passed in is not a scalar. It's an input object type, a special kind of object type that can be passed in as an argument. Learn more about input types on the Schema page.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Mutation more</h2>
+					<ul>
+						<li class="fragment">A mutation can contain multiple fields, just like a query</li>
+						<li class="fragment">query fields are executed in parallel</li>
+						<li class="fragment">mutation fields run in series, one after the other</li>
+						<li class="fragment"></li>
+					</ul>
+					<aside class="notes">
+						<p>This means that if we send two incrementCredits mutations in one request, the first is guaranteed to finish before the second begins, ensuring that we don't end up with a race condition with ourselves.</p>
+					</aside>
 				</section>
 			</section>
 			<section>
