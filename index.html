@@ -62,13 +62,14 @@
 			<section>
 				<h2>Todo</h2>
 				<ol>
-					<li>order the slides</li>
 					<li>REST vs GraphQL: delete put</li>
 					<li>Security</li>
 					<li>Thinking in GraphQL</li>
 					<li>When to consider GraphQL</li>
-					<li>Type: is it same both places then remove duplicate</li>
 					<li>Authentication: </li>
+					<li>
+						<a href="https://graphql.github.io/learn/execution/">How query is executed</a>
+					</li>
 				</ol>
 			</section>
 			<section>
@@ -113,8 +114,9 @@
 				<ol>
 					<li>What is GraphQL</li>
 					<li>Why you should consider GraphQL</li>
-					<li class="fragment">How to run GraphQL Query</li>
-					<li class="fragment">Features in GraphQL</li>
+					<li class="fragment">How to write GraphQL Query</li>
+					<li class="fragment">How to execute GraphQL Query</li>
+					<li class="fragment">Advanced features in GraphQL</li>
 					<li class="fragment">Use GraphQL with popular framework</li>
 					<li class="fragment">Compare GraphQL with REST</li>
 				</ol>
@@ -198,7 +200,7 @@
 
 				<section>
 					<h2>GraphQL Approach</h2>
-
+					<p>A frontend-focused API technology </p>
 					<img src="images/extra/graphql-api.svg" style="max-width: 70%">
 				</section>
 
@@ -209,6 +211,8 @@
 						<li class="fragment">Rapid iteration, without changing API</li>
 						<li class="fragment">Strong Type System: Schema Definition Language (SDL)</li>
 						<li class="fragment">Validate queries</li>
+						<li class="fragment">It's been used since 2012</li>
+						<li class="fragment">Heavily used by Facebook, github, pinterest, etc.</li>
 					</ul>
 					<p>
 						<small>
@@ -218,6 +222,18 @@
 				</section>
 			</section>
 			<section>
+				<section>
+					<h1>Quiz Time</h1>
+				</section>
+				<section>
+					<p>What was on the RIP T-shirt?</p>
+					<img src="./images/rip.jpg" alt="" class="fragment">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Query GraphQL</h1>
+				</section>
 				<section>
 					<h2>Simple GraphQL</h2>
 					<img src="./images/structure.png" alt="">
@@ -324,17 +340,18 @@
 				<section>
 					<h2>Variable</h2>
 					<ul>
-						<li class="fragment">Replace the static value in the query with $variableName</li>
+						<li class="fragment1">Replace the static value in the query with $variableName</li>
 						<li class="fragment">Declare $variableName as one of the variables accepted by the query</li>
-						<li class="fragment">Pass variableName: value in the separate, transport-specific (usually JSON) variables dictionary</li>
+						<li class="fragment">Pass variableName: value in the separate</li>
+						<li class="fragment">Transport-specific (usually JSON) variables dictionary</li>
 					</ul>
 				</section>
 				<section>
-					<h2>variable</h2>
+					<h2>Variable</h2>
 					<img src="./images/variable.png" alt="">
 				</section>
 				<section>
-					<h2>Default Variable</h2>
+					<h2>Default Value</h2>
 					<img src="./images/default-variable.png" alt="">
 				</section>
 			</section>
@@ -343,8 +360,9 @@
 					<h2>Playground</h2>
 				</section>
 				<section>
+					<h2>GraphQL Playground</h2>
 					<p>
-						<a target="_blank" href="https://legacy.graphqlbin.com/RVIn">online</a>
+						<a target="_blank" href="https://legacy.graphqlbin.com/RVIn">Online</a>
 					</p>
 					<p>
 						<a target="_blank" href="https://developer.github.com/v4/explorer/">github graphQL</a>
@@ -355,25 +373,29 @@
 				</section>
 			</section>
 			<section>
-				<section>
-					<h1>Type</h1>
-				</section>
-				<section>
-					<p>GraphQL can be used with any backend framework or programming language</p>
-					<p>
-						<small>
-							<a href="https://graphql.github.io/learn/schema/">type</a>
-						</small>
-					</p>
-				</section>
+				<h1>More About</h1>
+				<h2> Query</h2>
 			</section>
 			<section>
 				<section>
-					<h2>More about queries</h2>
+					<h2>Pagination</h2>
 				</section>
 				<section>
+					<h2>Pagination</h2>
+					<img style="height: 300px;" src="./images/slicing.png" alt="">
+					<ul>
+						<li class="fragment">Skip first two:
+							<code>friends(first:2 offset:2)</code>
+						</li>
+						<!-- <li class="fragment">Use variable: <code>friends(first:2 after:$friendId)</code></li> -->
+						<li class="fragment">Cursor:
+							<code>friends(first:2 after:$friendCursor)</code>
+						</li>
+					</ul>
 					<p>
-						<a href="https://graphql.github.io/learn/queries/">here full page</a>
+						<small>
+							<a href="https://graphql.github.io/learn/pagination/">Pagination</a>
+						</small>
 					</p>
 				</section>
 				<section>
@@ -404,10 +426,15 @@
 						</small>
 					</p>
 					<aside class="notes">
-						<p>Note how createReview field returns the stars and commentary fields of the newly created review. This is especially useful when mutating existing data, for example, when incrementing a field, since we can mutate and query the new value of the field with one request.
+						<p>Note how createReview field returns the stars and commentary fields of the newly created review. This is especially
+							useful when mutating existing data, for example, when incrementing a field, since we can mutate and query the new
+							value of the field with one request.
 
-								</p>
-								<p>You might also notice that, in this example, the review variable we passed in is not a scalar. It's an input object type, a special kind of object type that can be passed in as an argument. Learn more about input types on the Schema page.</p>
+						</p>
+						<p>You might also notice that, in this example, the review variable we passed in is not a scalar. It's an input object
+							type, a special kind of object type that can be passed in as an argument. Learn more about input types on the Schema
+							page.
+						</p>
 					</aside>
 				</section>
 				<section>
@@ -416,10 +443,11 @@
 						<li class="fragment">A mutation can contain multiple fields, just like a query</li>
 						<li class="fragment">query fields are executed in parallel</li>
 						<li class="fragment">mutation fields run in series, one after the other</li>
-						<li class="fragment"></li>
+
 					</ul>
 					<aside class="notes">
-						<p>This means that if we send two incrementCredits mutations in one request, the first is guaranteed to finish before the second begins, ensuring that we don't end up with a race condition with ourselves.</p>
+						<p>This means that if we send two incrementCredits mutations in one request, the first is guaranteed to finish before
+							the second begins, ensuring that we don't end up with a race condition with ourselves.</p>
 					</aside>
 				</section>
 			</section>
@@ -445,98 +473,13 @@
 			</section>
 			<section>
 				<section>
-					<h1>Pagination</h1>
-				</section>
-				<section>
-					<h2>Slicing</h2>
-					<img src="./images/slicing.png" alt="">
-					<ul>
-						<li class="fragment">friends(first:2 offset:2) to ask for the next two in the list</li>
-						<li class="fragment">friends(first:2 after:$friendId), to ask for the next two after the last friend we fetched</li>
-						<li class="fragment">Use variable like this: friends(first:2 after:$friendCursor)</li>
-					</ul>
-					<p><small><a href="https://graphql.github.io/learn/pagination/">Pagination</a></small></p>
+					<h1>Advanced GraphQL</h1>
 				</section>
 			</section>
-			<section>
-				<section>
-					<h1>Execution</h1>
-					<aside class="notes">
-						<p>After being validated, a GraphQL query is executed by a GraphQL server which returns a result that mirrors the shape
-							of the requested query, typically as JSON.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Execution</h2>
-					<img src="./images/execution.png" alt="">
-					<aside class="notes">
-						<p>GraphQL cannot execute a query without a type system, </p>
-						<p>let's use an example type system to illustrate executing a query. </p>
-						<p>This is a part of the same type system used throughout the examples in these articles:</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Resolver</h2>
-					<img src="./images/execution2.png" alt="">
-					<ul>
-						<li>Each field on each type is backed by a function called the resolver</li>
-						<li class="fragment">resolver which is provided by the GraphQL server developer.</li>
-						<li class="fragment">When a field is executed, the corresponding resolver is called to produce the next value.</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Advanced Resolver</h2>
-					<ul>
-						<li class="fragment">Root fields & resolvers</li>
-						<li class="fragment">Asynchronous resolvers</li>
-						<li class="fragment">Trivial resolvers</li>
-						<li class="fragment">Scalar coercion</li>
-						<li class="fragment">List resolvers</li>
-						<li class="fragment"></li>
-					</ul>
-				</section>
-				<section>
-					<h2>Producing the Result</h2>
-					<ul>
-						<li class="fragment">As each field is resolved, the resulting value is placed into a key-value map</li>
-						<li class="fragment">field name (or alias) as the key</li>
-						<li class="fragment">the resolved value as the value</li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-					</ul>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Authorization</h1>
-				</section>
-				<section>
-					<h2>Authorization</h2>
-					<p>Delegate authorization logic to the business logic layer</p>
-					<img src="./images/authBad.png" alt="">
-					<p> It is tempting to place authorization logic in the GraphQL layer like this</p>
-					<p>We would need to duplicate this code for each entry point into the service</p>
-					<br>
-					<p><small><a href="https://graphql.github.io/learn/authorization/">Authorization</a></small></p>
-					<aside class="notes">
-						<p>Authorization is a type of business logic that describes whether a given user/session/context has permission to perform an action or see a piece of data.</p>
-					</aside>
-				</section>
-				<section>
-					<p>delegate authorization logic to the business logic layer</p>
-					<img src="./images/authGood.png" alt="">
-				</section>
-				<section>
-					<h2>Authentication</h2>
-					<p><a href="https://graphql.github.io/graphql-js/authentication-and-express-middleware/">Read from here</a></p>
-				</section>
-			</section>
-
 			<section>
 				<section>
 					<h1>Serving over Http</h1>
+					<p>Rest vs GraphQL</p>
 				</section>
 				<section>
 					<h2>Serving over Http</h2>
@@ -627,6 +570,60 @@
 			</section>
 			<section>
 				<section>
+					<h2>Client side integration</h2>
+				</section>
+				<section>
+					<h2>Apollo</h2>
+					<ul>
+						<li class="fragment">Declarative data fetching</li>
+						<li class="fragment">Zero-config caching</li>
+						<li class="fragment">Combine local & remote data</li>
+						<li class="fragment">Vibrant ecosystem</li>
+					</ul>
+					<p>
+						<small>
+							<a href="https://open.nytimes.com/the-new-york-times-now-on-apollo-b9a78a5038c?gi=3cba5d3ecd63">Relay Vs Apollo</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Apollo Client</h2>
+					<pre><code>
+	import ApolloClient from 'apollo-boost';
+	
+	const client = new ApolloClient();
+						</code></pre>
+					<p class="fragment">/graphql</p>
+					<pre class="fragment"><code>
+	import ApolloClient from 'apollo-boost';
+	
+	const client = new ApolloClient({
+		uri: 'https://graphql.example.com'
+	});
+						</code></pre>
+					<p>
+						<small>
+							<a href="https://github.com/apollographql/apollo-client">Apollo Client</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<img src="./images/apollo.png" alt="">
+				</section>
+				<section>
+					<img src="./images/apolloReact.png" alt="">
+				</section>
+				<section>
+					<img src="./images/react-apollo.png" alt="">
+					<p>
+						<small>
+							<a href="https://www.apollographql.com/docs/react/essentials/queries.html">Apollo Queries</a>
+						</small>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
 					<h2>Thinking in GraphQL</h2>
 					<br>
 					<p>
@@ -634,14 +631,6 @@
 							<a href="https://graphql.github.io/learn/thinking-in-graphs/">Thinking in Graphs</a>
 						</small>
 					</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Rest VS GraphQL</h2>
-				</section>
-				<section>
-					<img src="./images/rest.png" alt="">
 				</section>
 			</section>
 			<section>
@@ -656,6 +645,40 @@
 				</section>
 				<section>
 
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>GraphQL Server</h1>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Architecture</h1>
+					<br>
+					<p>
+						<small>
+							<a href="https://www.howtographql.com/basics/3-big-picture/">Architecture</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>GraphQL Server</h2>
+					<p>GraphQL server with a connected database</p>
+					<p>Brand new application</p>
+					<img src="./images/architecture1.png" alt="">
+				</section>
+				<section>
+
+					<img src="./images/architecture2.png" alt="">
+					<p>GraphQL server that is a thin layer in front of a number of third party or legacy systems and integrates them through
+						a single GraphQL API</p>
+				</section>
+				<section>
+
+					<img src="./images/architecture3.png" alt="">
+					<p>A hybrid approach of a connected database and third party or legacy systems that can all be accessed through the same
+						GraphQL API</p>
 				</section>
 			</section>
 			<section>
@@ -715,77 +738,120 @@
 					<p>That means that the GraphQL service needs to have a Query type with hero and droid fields:</p>
 					<img src="./images/queryTypeQuery2.png" alt="">
 				</section>
-				<section>
-					<p>
-						<a href="https://www.howtographql.com/basics/2-core-concepts/">core concepts</a>
-					</p>
-				</section>
 			</section>
 			<section>
 				<section>
-					<h2>Quiz Time</h2>
+					<h1>Execution</h1>
+					<aside class="notes">
+						<p>After being validated, a GraphQL query is executed by a GraphQL server which returns a result that mirrors the shape
+							of the requested query, typically as JSON.</p>
+					</aside>
 				</section>
 				<section>
-					<p>What is Never type?</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Client side integration</h2>
-				</section>
-				<section>
-					<h2>Apollo</h2>
+					<h2>GraphQL Execution</h2>
 					<ul>
-						<li class="fragment">Declarative data fetching</li>
-						<li class="fragment">Zero-config caching</li>
-						<li class="fragment">Combine local & remote data</li>
-						<li class="fragment">Vibrant ecosystem</li>
+						<li>Execution is very simple</li>
+						<li class="fragment">The query is traversed field by field,</li>
+						<li class="fragment">executing “resolvers” for each field</li>
+						<li class="fragment"></li>
 					</ul>
-					<p>
-						<small>
-							<a href="https://open.nytimes.com/the-new-york-times-now-on-apollo-b9a78a5038c?gi=3cba5d3ecd63">Relay Vs Apollo</a>
-						</small>
-					</p>
+					<img src="./images/executionSchema.png" alt="" class="fragment">
 				</section>
 				<section>
-					<h2>Apollo Client</h2>
-					<pre><code>
-import ApolloClient from 'apollo-boost';
+					<h2>Execution</h2>
+					<img src="./images/execution.png" alt="">
 
-const client = new ApolloClient();
-					</code></pre>
-					<p class="fragment">/graphql</p>
-					<pre class="fragment"><code>
-import ApolloClient from 'apollo-boost';
-
-const client = new ApolloClient({
-	uri: 'https://graphql.example.com'
-});
-					</code></pre>
 					<p>
 						<small>
-							<a href="https://github.com/apollographql/apollo-client">Apollo Client</a>
+							<a href="https://www.howtographql.com/advanced/1-server/">GraphQl Execution</a>
 						</small>
 					</p>
+					<aside class="notes">
+						<p>GraphQL cannot execute a query without a type system, </p>
+						<p>let's use an example type system to illustrate executing a query. </p>
+						<p>This is a part of the same type system used throughout the examples in these articles:</p>
+					</aside>
 				</section>
 				<section>
-					<img src="./images/apollo.png" alt="">
+					<h2>Resolver</h2>
+					<img src="./images/execution2.png" alt="">
+					<ul>
+						<li>Each field on each type is backed by a function called the resolver</li>
+						<li class="fragment">resolver which is provided by the GraphQL server developer.</li>
+						<li class="fragment">When a field is executed, the corresponding resolver is called to produce the next value.</li>
+					</ul>
 				</section>
 				<section>
-					<img src="./images/apolloReact.png" alt="">
+					<h2>Advanced Resolver</h2>
+					<ul>
+						<li class="fragment">Root fields & resolvers</li>
+						<li class="fragment">Asynchronous resolvers</li>
+						<li class="fragment">Trivial resolvers</li>
+						<li class="fragment">Scalar coercion</li>
+						<li class="fragment">List resolvers</li>
+						<li class="fragment"></li>
+					</ul>
 				</section>
 				<section>
-					<img src="./images/react-apollo.png" alt="">
-					<p>
-						<small>
-							<a href="https://www.apollographql.com/docs/react/essentials/queries.html">Apollo Queries</a>
-						</small>
-					</p>
+					<h2>Producing the Result</h2>
+					<ul>
+						<li class="fragment">As each field is resolved, the resulting value is placed into a key-value map</li>
+						<li class="fragment">field name (or alias) as the key</li>
+						<li class="fragment">the resolved value as the value</li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h1>GraphQL Server</h1>
+					<h1>Authorization</h1>
+				</section>
+				<section>
+					<h2>Authorization</h2>
+					<p>Delegate authorization logic to the business logic layer</p>
+					<img src="./images/authBad.png" alt="">
+					<p> It is tempting to place authorization logic in the GraphQL layer like this</p>
+					<p>We would need to duplicate this code for each entry point into the service</p>
+					<br>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/authorization/">Authorization</a>
+						</small>
+					</p>
+					<aside class="notes">
+						<p>Authorization is a type of business logic that describes whether a given user/session/context has permission to perform
+							an action or see a piece of data.</p>
+					</aside>
+				</section>
+				<section>
+					<p>delegate authorization logic to the business logic layer</p>
+					<img src="./images/authGood.png" alt="">
+				</section>
+				<section>
+					<h2>Authentication</h2>
+					<p>
+						<a href="https://graphql.github.io/graphql-js/authentication-and-express-middleware/">Read from here</a>
+					</p>
+				</section>
+			</section>
+			<section>
+				<h1>Security</h1>
+				<br>
+				<p>
+					<small>
+						<a href="https://www.howtographql.com/advanced/4-security/">GraphQL Security</a>
+					</small>
+				</p>
+			</section>
+			<section>
+				<section>
+					<h1>Server Solutions</h1>
+				</section>
+				<section>
+					<h2>Covers all popular languages</h2>
 				</section>
 				<section>
 					<img src="./images/graphqljs.png" alt="">
@@ -809,6 +875,7 @@ const client = new ApolloClient({
 					</p>
 				</section>
 			</section>
+
 			<section>
 				<section>
 					<h1>Questions</h1>
@@ -830,14 +897,14 @@ const client = new ApolloClient({
 				</section>
 			</section>
 			<section>
-				<h1>Security</h1>
-				<br>
-				<p>
-					<small>
-						<a href="https://www.howtographql.com/advanced/4-security/">GraphQL Security</a>
-					</small>
-				</p>
+				<section>
+					<h2>Quiz Time</h2>
+				</section>
+				<section>
+					<p>What is Never type?</p>
+				</section>
 			</section>
+
 			<section>
 				<section>
 					<h1>Learn New thing</h1>
