@@ -485,22 +485,62 @@
 					<h1>Serving over Http</h1>
 				</section>
 				<section>
+					<h2>Serving over Http</h2>
 					<ul>
 						<li>GraphQL should be placed after all authentication middleware</li>
+						<li class="fragment">Will have access to the same session & user information</li>
+						<li class="fragment">REST uses uri to find resources</li>
+						<li class="fragment">GraphQL uses entity graph</li>
+						<li class="fragment">GraphQL server operates on a single URL/endpoint</li>
+						<li class="fragment">usually /graphql</li>
+						<li class="fragment">all GraphQL requests for a given service should be directed at this endpoint</li>
 					</ul>
 					<br>
 					<p><small><a href="https://graphql.github.io/learn/serving-over-http/">Serve over http</a></small></p>
 				</section>
 				<section>
 					<h2>GET</h2>
+					<img src="./images/get.png" alt="">
+					<ul>
+						<li class="fragment">This request could be sent via an HTTP GET</li>
+						<li class="fragment">http://myapi/graphql?query={me{name}}</li>
+						<li class="fragment">Query variables can be sent as a JSON-encoded string</li>
+						<li class="fragment">additional query parameter called variables</li>
+						<li class="fragment">operationName query parameter can be used to control which one should be executed</li>
+					</ul>
 				</section>
 				<section>
 					<h2>POST</h2>
+					<p>GraphQL POST request should use the application/json content type</p>
+					<img src="./images/post.png" alt="">
+					<ul>
+						<li class="fragment">operationName and variables are optional fields</li>
+						<li class="fragment">operationName is only required if multiple operations are present</li>
+						<li class="fragment">Use "application/graphql" Content-Type header </li>
+						
+					</ul>
 				</section>
 				<section>
 					<h2>Response</h2>
+					<ul>
+						<li class="fragment">A query might result in some data and some errors</li>
+						<li class="fragment">Response should returned in the body as JSON format</li>
+						<li class="fragment">If there were no errors returned, the "errors" field should not be present on the response</li>
+						<li class="fragment">data field would be included even there was an error during execution</li>
+						
+					</ul>
+					<p><small><a href="https://graphql.github.io/learn/serving-over-http/">Serving over http</a></small></p>
 				</section>
-				<section>GraphiQL</section>
+				<section>
+					<h2>GraphiQL</h2>
+					<img src="./images/graphiQL.png" alt="">
+					<ul>
+						<li class="fragment">GraphiQL is useful during testing and development</li>
+						<li class="fragment">should be disabled in production by default</li>
+						<li class="fragment">For NodeJS, consider <a href="https://github.com/graphql/express-graphql">express-graphql</a> or <a href="https://github.com/apollostack/graphql-server">graphql-server</a>.</li>
+					</ul>
+				</section>
+
 			</section>
 			<section>
 				<section>
