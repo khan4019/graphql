@@ -60,19 +60,6 @@
 				</p>
 			</section>
 			<section>
-				<h2>Todo</h2>
-				<ol>
-					<li>REST vs GraphQL: delete put</li>
-					<li>Security</li>
-					<li>Thinking in GraphQL</li>
-					<li>When to consider GraphQL</li>
-					<li>Authentication: </li>
-					<li>
-						<a href="https://graphql.github.io/learn/execution/">How query is executed</a>
-					</li>
-				</ol>
-			</section>
-			<section>
 				<section>
 					<h2>Who is</h2>
 					<h1>JS Dude?</h1>
@@ -414,17 +401,16 @@
 				</section>
 				<section>
 					<h2>Mutation</h2>
-					<p>Mutation is changing data. similar to POST</p>
 					<ul>
+						<li class="fragment">Mutation is for changing data. similar to POST</li>
+						<li class="fragment">used to create, update or delete data</li>
 						<li class="fragment">Don't use Get request to modify data</li>
 						<li class="fragment">Use nested field to get return from mutation</li>
+						<li class="fragment">The structure is almost similar to queries</li>
+						<li class="fragment">Include the word ‘mutation’ in the beginning</li>
+						<li class="fragment">mutation can contain multiple fields like a query</li>
 					</ul>
-					<img src="./images/mutation.png" alt="">
-					<p>
-						<small>
-							<a href="https://graphql.github.io/learn/queries/#mutations">Mutation</a>
-						</small>
-					</p>
+
 					<aside class="notes">
 						<p>Note how createReview field returns the stars and commentary fields of the newly created review. This is especially
 							useful when mutating existing data, for example, when incrementing a field, since we can mutate and query the new
@@ -438,13 +424,19 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Mutation more</h2>
+						<h2>Mutation more</h2>
+					<img src="./images/mutation.png" alt="">
+					
 					<ul>
-						<li class="fragment">A mutation can contain multiple fields, just like a query</li>
+						
 						<li class="fragment">query fields are executed in parallel</li>
 						<li class="fragment">mutation fields run in series, one after the other</li>
-
 					</ul>
+					<p>
+							<small>
+								<a href="https://graphql.github.io/learn/queries/#mutations">Mutation</a>
+							</small>
+						</p>
 					<aside class="notes">
 						<p>This means that if we send two incrementCredits mutations in one request, the first is guaranteed to finish before
 							the second begins, ensuring that we don't end up with a race condition with ourselves.</p>
@@ -569,6 +561,14 @@
 				</section>
 			</section>
 			<section>
+				<h2>Subscription</h2>
+				<ul>
+					<li>Real-time link to the server</li>
+					<li>Get instant information regarding relevant events</li>
+					<li>Client side needs to subscribe to the particular event to get corresponding data</li>
+				</ul>
+			</section>
+			<section>
 				<section>
 					<h2>Client side integration</h2>
 				</section>
@@ -632,19 +632,66 @@
 						</small>
 					</p>
 				</section>
+				<section>
+					<h2>GraphQL</h2>
+					<p>
+						<small>Think like the language you use everyday to describe your business</small>
+					</p>
+					<ul>
+						<li class="fragment">A user can have multiple email accounts</li>
+						<li class="fragment">Each email account has an address, inbox, drafts, deleted items, and sent items</li>
+						<li class="fragment">Each email has a sender, receive date, subject, and body</li>
+						<li class="fragment">Users cannot send an email without a recipient address</li>
+						<li class="fragment">Think it as an interface of the backend</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Discuss in GraphQL</h2>
+					<ul>
+						<li class="fragment">Develop a shared understanding</li>
+						<li class="fragment">Choose intuitive, durable names for nodes and relationships</li>
+
+					</ul>
+					<img src="./images/think1.png" alt="" class="fragment">
+				</section>
+				<section>
+					<p>Fetch the "preview info" for the first 20 drafts in the main account</p>
+					<img src="./images/think2.png" alt="">
+				</section>
+				<section>
+					<h2>Business Logic Layer</h2>
+					<ul>
+						<li>Should act as the single source of truth</li>
+						<li class="fragment">Should enforcing business domain rules</li>
+						<li class="fragment">Perform validation inside business logic</li>
+						<li class="fragment">Check Authorization</li>
+					</ul>
+				</section>
+				<section>
+					<h2>One source of truth</h2>
+
+					<img class="medium-image" src="./images/think3.png" alt="">
+					<p>
+						<small>all entry points (REST, GraphQL, and RPC) into the system will be processed with the same validation, authorization,
+							and error handling rules.</small>
+					</p>
+				</section>
 			</section>
 			<section>
 				<section>
 					<h2>When to consider GraphQL</h2>
 				</section>
 				<section>
-
-				</section>
-				<section>
-
-				</section>
-				<section>
-
+					<ul>
+						<li class="fragment">When overfetching and underfetching is a problem</li>
+						<li class="fragment">Need to enables rapid product development</li>
+						<li class="fragment">Tired of managing different version of API</li>
+						<li class="fragment">Too many endpoints</li>
+						<li class="fragment">you can use REST and GraphQL side by side</li>
+					</ul>
+					<aside class="notes">
+						<p> With GraphQL, it is possible to completely redesign the UI of an app without needing to touch the backend.</p>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -756,6 +803,9 @@
 						<li class="fragment"></li>
 					</ul>
 					<img src="./images/executionSchema.png" alt="" class="fragment">
+					<p><small>
+							<a href="https://graphql.github.io/learn/execution/">How query is executed</a>
+					</small></p>
 				</section>
 				<section>
 					<h2>Execution</h2>
@@ -832,8 +882,21 @@
 				</section>
 				<section>
 					<h2>Authentication</h2>
+					<ul>
+						<li class="fragment">GraphQL doesn’t really make a prescription about how you handle authentication</li>
+						<li class="fragment">Can use the methods we are familiar with from REST. </li>
+						<li class="fragment">In graphql-js set the token on the context</li>
+						<li class="fragment">Every resolver receives as its third argument</li>
+					</ul>
 					<p>
-						<a href="https://graphql.github.io/graphql-js/authentication-and-express-middleware/">Read from here</a>
+						<small>
+							<a href="https://blog.pusher.com/handling-authentication-in-graphql/">Handling authentication in GraphQL</a>
+						</small>
+					</p>
+					<p>
+						<small>
+							<a href="https://dev-blog.apollodata.com/a-guide-to-authentication-in-graphql-e002a4039d1">A guide to GraphQL authentication</a>
+						</small>
 					</p>
 				</section>
 			</section>
@@ -875,10 +938,14 @@
 					</p>
 				</section>
 			</section>
-
 			<section>
 				<section>
-					<h1>Questions</h1>
+					<h1>Disadvantages</h1>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>GraphQL FAQ</h1>
 				</section>
 				<section>
 					<ul>
@@ -948,10 +1015,12 @@
 				<h2>Resources</h2>
 				<ul>
 					<li>
-						<a href="https://www.youtube.com/watch?v=lAJWHHUz8_8">Fun fun Fun video</a>
+						<a href="https://medium.com/@weblab_tech/graphql-everything-you-need-to-know-58756ff253d8">Everything you need to know about GraphQL</a>
 					</li>
+					<li><a href="https://dev-blog.apollodata.com/the-graphql-stack-how-everything-fits-together-35f8bf34f841">The GraphQL stack: How everything fits together</a></li>
+					<li><a href="https://blog.graph.cool/top-5-reasons-to-use-graphql-b60cfa683511">Top 5 Reasons to Use GraphQL</a></li>
 					<li>
-						<a href="https://www.youtube.com/watch?v=RMtq0RCLuzs">Fun fun fun more video</a>
+						<a href="https://www.youtube.com/watch?v=lAJWHHUz8_8">Fun fun Fun video</a>
 					</li>
 					<li>
 						<a href="https://www.udemy.com/introduction-to-graphql-and-apollo-building-modern-apis/learn/v4/t/lecture/8702302?start=0">Udemy Free course</a>
@@ -959,9 +1028,7 @@
 					<li>
 						<a href="https://githubengineering.com/the-github-graphql-api/">Githup api</a>
 					</li>
-					<li>
-						<a href=""></a>
-					</li>
+
 				</ul>
 			</section>
 
