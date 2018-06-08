@@ -189,7 +189,17 @@
 					<h2>GraphQL Approach</h2>
 					<img src="images/extra/graphql-api.svg" style="max-width: 70%">
 				</section>
-
+				<section>
+					<h2>GraphQL Model</h2>
+					<img src="./images/seprate.png" alt="">
+					<br>
+					<br>
+					<p>
+						<small>
+							<a href="https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/">GraphQL vs REST</a>
+						</small>
+					</p>
+				</section>
 				<section>
 					<h2>Why GraphQL</h2>
 					<ul>
@@ -482,6 +492,11 @@
 			<section>
 				<section>
 					<h1>Caching</h1>
+					<p>
+						<small>
+							<a href="https://facebook.github.io/relay/docs/en/thinking-in-graphql.html">Client Caching</a>
+						</small>
+					</p>
 				</section>
 				<section>
 					<ul>
@@ -561,21 +576,21 @@
 				</section>
 			</section>
 			<section>
-					<section>
-						<h1>Summary 2</h1>
-					</section>
-					<section>
-						<h2>So far...</h2>
-						<ul>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-						</ul>
-					</section>
+				<section>
+					<h1>Summary 2</h1>
 				</section>
-				
+				<section>
+					<h2>So far...</h2>
+					<ul>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+			</section>
+
 			<section>
 				<section>
 					<h1>Quiz Time</h1>
@@ -631,23 +646,38 @@
 						<li class="fragment">Specifies the capabilities of the API</li>
 						<li class="fragment">Defines how clients can request the data</li>
 						<li class="fragment">Often seen as a contract between server and client</li>
-						
+
 					</ul>
 					<br>
 					<br>
-					<p><small><a href="https://graphql.github.io/learn/schema/">GraphQL Schema</a></small></p>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/schema/">GraphQL Schema</a>
+						</small>
+					</p>
 				</section>
 				<section>
 					<h2>Declare Schema</h2>
-						<ul>
-							<li class="fragment">A schema is simply a collection of GraphQL types</li>
-							<li class="fragment">Some special root types</li>
-						</ul>
-						<img class="fragment" src="./images/rootType.png" alt="">
-						<p class="fragment"><small><code>Query</code>, <code>Mutation</code>, and <code>Subscription</code> types are the entry points for the requests sent by the client.</small></p>
+					<ul>
+						<li class="fragment">A schema is simply a collection of GraphQL types</li>
+						<li class="fragment">Some special root types</li>
+					</ul>
+					<img class="fragment" src="./images/rootType.png" alt="">
+					<p class="fragment">
+						<small>
+							<code>Query</code>,
+							<code>Mutation</code>, and
+							<code>Subscription</code> types are the entry points for the requests sent by the client.</small>
+					</p>
+					<aside class="notes">
+						<p class="fragment1">
+							<small>Every GraphQL service has a query type and may or may not have a mutation or subscription type</small>
+						</p>
+					</aside>
+
 				</section>
 				<section>
-					<h2>Schema</h2>
+					<h2>Object Types</h2>
 					<img src="./images//schema.png" alt="">
 					<ul>
 						<li class="fragment">Character is a GraphQL Object Type</li>
@@ -657,9 +687,13 @@
 						<li class="fragment">[Episode] represents an array of Episode objects</li>
 						<li class="fragment">[Episode]! represents non-nullable, expect an array (with zero or more items)</li>
 					</ul>
+					<aside class="notes">
+						<p>The most basic components of a GraphQL schema are object types, which just represent a kind of object you can fetch
+							from your service, and what fields it has. </p>
+					</aside>
 				</section>
 				<section>
-					<h2>types</h2>
+					<h2>Scalar Types</h2>
 					<ul>
 						<li>Int, Float</li>
 						<li class="fragment">String, Boolean</li>
@@ -669,6 +703,11 @@
 						<li class="fragment">Interface</li>
 						<li class="fragment">Union Types</li>
 					</ul>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/schema/">Schema types</a>
+						</small>
+					</p>
 					<aside class="notes">
 						<p>union SearchResult = Human | Droid | Starship</p>
 						<p> ID scalar type represents a unique identifier, often used to refetch an object or as the key for a cache. </p>
@@ -684,19 +723,21 @@
 						<li class="fragment">Can define a default value for optional argument</li>
 					</ul>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Query and Mutation types</h2>
 					<img src="./images/queryType.png" alt="">
 					<ul>
 						<li class="fragment">GraphQL service has a query type</li>
 						<li class="fragment">may or may not have a mutation type</li>
-						
 					</ul>
-				</section>
+				</section> -->
 				<section>
+					<h2>Query Match</h2>
 					<img src="./images/queryTypeQuery.png" alt="">
-					<p>That means that the GraphQL service needs to have a Query type with hero and droid fields:</p>
-					<img src="./images/queryTypeQuery2.png" alt="">
+					<p class="fragment">
+						<small>GraphQL service needs to have a Query type with hero and droid fields</small>
+					</p>
+					<img class="fragment" src="./images/queryTypeQuery2.png" alt="">
 				</section>
 			</section>
 			<section>
@@ -708,14 +749,16 @@
 					</aside>
 				</section>
 				<section>
-					<h2>GraphQL Execution</h2>
+					<h2>Execution Process</h2>
 					<ul>
-						<li>Execution is very simple</li>
-						<li class="fragment">The query is traversed field by field,</li>
-						<li class="fragment">Executing “resolvers” for each field</li>
-						
+						<li>Before Executing, Query is validated</li>
+						<li class="fragment">GraphQL query is executed by a GraphQL server </li>
+						<li class="fragment">Result mirrors the shape of the requested query</li>
+						<li class="fragment">Typically returns result as JSON</li>
+						<li class="fragment">Needs a type system to execute Query</li>
 					</ul>
-					<img src="./images/executionSchema.png" alt="" class="fragment">
+					<br>
+					<br>
 					<p>
 						<small>
 							<a href="https://graphql.github.io/learn/execution/">How query is executed</a>
@@ -723,9 +766,29 @@
 					</p>
 				</section>
 				<section>
-					<h2>Execution</h2>
+					<h2>Query Execution</h2>
+					<img src="./images/executionQuery.png" alt="">
+					<p>
+						<small>To execute this query we need a type system</small>
+					</p>
+				</section>
+				<section>
+					<h2>Type System</h2>
 					<img src="./images/execution.png" alt="">
-
+				</section>
+				<section>
+					<h2>Execution</h2>
+					<ul>
+						<li class="fragment">Execution is very simple</li>
+						<li class="fragment">The query is traversed field by field</li>
+						<li class="fragment">Each field has a backend function called
+							<code>resolver</code>
+						</li>
+						<li class="fragment">When a field is executed, the corresponding resolver is called</li>
+						<li class="fragment">If there is no nested types, execution ends.</li>
+					</ul>
+					<br>
+					<br>
 					<p>
 						<small>
 							<a href="https://www.howtographql.com/advanced/1-server/">GraphQl Execution</a>
@@ -735,18 +798,6 @@
 						<p>GraphQL cannot execute a query without a type system, </p>
 						<p>let's use an example type system to illustrate executing a query. </p>
 						<p>This is a part of the same type system used throughout the examples in these articles:</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Resolver</h2>
-					<img src="./images/execution2.png" alt="">
-					
-					<ul>
-						<li>Each field on each type is backed by a function called the resolver</li>
-						<li class="fragment">When a field is executed, the corresponding resolver is called</li>
-					</ul>
-					<aside class="notes">
-							<p><small>Resolver is provided by the GraphQL server developer</small></p>
 					</aside>
 				</section>
 				<section>
@@ -763,14 +814,138 @@
 					<h2>Producing the Result</h2>
 					<ul>
 						<li class="fragment">As each field is resolved, the resulting value is placed into a key-value map</li>
-						<li class="fragment">field name (or alias) as the key</li>
-						<li class="fragment">the resolved value as the value</li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
+						<li class="fragment">Starts from the bottom leaf fields of the query</li>
+						<li class="fragment">Continues all the way up to the the root field of the Query </li>
+						<li class="fragment">Collectively produces mirror of the original Query</li>
+						<li class="fragment">Then send the result to the client as JSON</li>
 					</ul>
 				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1>Server Solutions</h1>
+
+				</section>
+				<section>
+					<h3>Covers all popular Programming languages</h3>
+					<br>
+					<br>
+					<br>
+					<p>
+						<small>
+							<a href="https://graphql.org/code/">Server libraries</a>
+						</small>
+					</p>
+					<p>
+						<small>
+							<a href="https://dev-blog.apollodata.com/tutorial-building-a-graphql-server-cddaa023c035">How to build GraphQL Server</a>
+						</small>
+					</p>
+					<p>
+						<small>
+							<a href="https://blog.graph.cool/graphql-server-basics-the-network-layer-51d97d21861">GraphQL Server Basic</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>NodeJS</h2>
+					<p>graphql.js</p>
+					<img src="./images/graphqljs.png" alt="">
+				</section>
+				<section>
+					<h2>Python</h2>
+					<p>graphene</p>
+					<img src="./images/graphene.png" alt="">
+				</section>
+				<section>
+					<h2>Apollo Server</h2>
+					<ul>
+						<li>
+							<strong>Apollo Client:</strong> GraphQL client for every frontend platform</li>
+						<li>
+							<strong>Apollo Server:</strong> Library for writing GraphQL servers with JavaScript</li>
+						<li>
+							<strong>Apollo Engine:</strong> GraphQL gateway that provides caching, error tracking, and performance tracing</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Serving over Http</h1>
+					<p>Rest vs GraphQL</p>
+				</section>
+				<section>
+					<h2>Serving over Http</h2>
+					<ul>
+						<li>GraphQL should be placed after all authentication middleware</li>
+						<li class="fragment">Will have access to the same session & user information</li>
+						<li class="fragment">REST uses uri to find resources</li>
+						<li class="fragment">GraphQL uses entity graph</li>
+						<li class="fragment">GraphQL server operates on a single URL/endpoint</li>
+						<li class="fragment">Usually
+							<code>/graphql</code>
+						</li>
+						<!-- <li class="fragment">all GraphQL requests for a given service should be directed at this endpoint</li> -->
+					</ul>
+					<br>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/serving-over-http/">Serve over http</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>GET</h2>
+					<img style="height: 150px;" src="./images/get.png" alt="">
+					<ul>
+						<li class="fragment">This request could be sent via an HTTP GET</li>
+						<li class="fragment">http://myapi/graphql?query={me{name}}</li>
+						<!-- <li class="fragment">Query variables can be sent as a JSON-encoded string</li> -->
+						<!-- <li class="fragment">additional query parameter called variables</li> -->
+						<li class="fragment">Use
+							<code>operationName</code> to control which one should be executed</li>
+					</ul>
+				</section>
+				<section>
+					<h2>POST</h2>
+					<p>
+						<small>GraphQL POST request should use the application/json content type</small>
+					</p>
+					<img src="./images/post.png" alt="">
+					<ul>
+						<li class="fragment">operationName and variables are optional fields</li>
+						<li class="fragment">operationName is only required if multiple operations are present</li>
+						<li class="fragment">Use "application/graphql" Content-Type header </li>
+
+					</ul>
+				</section>
+				<section>
+					<h2>Response</h2>
+					<ul>
+						<li class="fragment">A query might result in some data and some errors</li>
+						<li class="fragment">Response should returned in the body as JSON format</li>
+						<li class="fragment">If there were no errors returned, the "errors" field should not be present on the response</li>
+						<li class="fragment">Data field would be included even there was an error during execution</li>
+
+					</ul>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/serving-over-http/">Serving over http</a>
+						</small>
+					</p>
+				</section>
+				<!-- <section>
+					<h2>GraphiQL</h2>
+					<img src="./images/graphiQL.png" alt="">
+					<ul>
+						<li class="fragment">GraphiQL is useful during testing and development</li>
+						<li class="fragment">should be disabled in production by default</li>
+						<li class="fragment">For NodeJS, consider
+							<a href="https://github.com/graphql/express-graphql">express-graphql</a> or
+							<a href="https://github.com/apollostack/graphql-server">graphql-server</a>.</li>
+					</ul>
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -778,7 +953,7 @@
 				</section>
 				<section>
 					<h2>Authorization</h2>
-					<p>Delegate authorization logic to the business logic layer</p>
+					<p>Delegate authorization logic to business logic layer</p>
 					<img src="./images/authBad.png" alt="">
 					<p> It is tempting to place authorization logic in the GraphQL layer like this</p>
 					<p>We would need to duplicate this code for each entry point into the service</p>
@@ -794,7 +969,7 @@
 					</aside>
 				</section>
 				<section>
-					<p>delegate authorization logic to the business logic layer</p>
+					<h2>Focus on Query</h2>
 					<img src="./images/authGood.png" alt="">
 				</section>
 				<section>
@@ -822,115 +997,15 @@
 				<br>
 				<p>
 					<small>
+						<a href="https://nordicapis.com/security-points-to-consider-before-implementing-graphql/">Security Points to be Considered</a>
+					</small>
+				</p>
+				<p>
+					<small>
 						<a href="https://www.howtographql.com/advanced/4-security/">GraphQL Security</a>
 					</small>
 				</p>
 			</section>
-			<section>
-				<section>
-					<h1>Server Solutions</h1>
-				</section>
-				<section>
-					<h2>Covers all popular languages</h2>
-				</section>
-				<section>
-					<img src="./images/graphqljs.png" alt="">
-					<p>
-						<small>
-							<a href="https://graphql.org/code/">Server libraries</a>
-						</small>
-					</p>
-				</section>
-				<section>
-					<img src="./images/graphene.png" alt="">
-					<p>
-						<small>
-							<a href="https://dev-blog.apollodata.com/tutorial-building-a-graphql-server-cddaa023c035">How to build GraphQL Server</a>
-						</small>
-					</p>
-					<p>
-						<small>
-							<a href="https://blog.graph.cool/graphql-server-basics-the-network-layer-51d97d21861">GraphQL Server Basic</a>
-						</small>
-					</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Serving over Http</h1>
-					<p>Rest vs GraphQL</p>
-				</section>
-				<section>
-					<h2>Serving over Http</h2>
-					<ul>
-						<li>GraphQL should be placed after all authentication middleware</li>
-						<li class="fragment">Will have access to the same session & user information</li>
-						<li class="fragment">REST uses uri to find resources</li>
-						<li class="fragment">GraphQL uses entity graph</li>
-						<li class="fragment">GraphQL server operates on a single URL/endpoint</li>
-						<li class="fragment">Usually
-							<code>/graphql</code>
-						</li>
-						<li class="fragment">all GraphQL requests for a given service should be directed at this endpoint</li>
-					</ul>
-					<br>
-					<p>
-						<small>
-							<a href="https://graphql.github.io/learn/serving-over-http/">Serve over http</a>
-						</small>
-					</p>
-				</section>
-				<section>
-					<h2>GET</h2>
-					<img src="./images/get.png" alt="">
-					<ul>
-						<li class="fragment">This request could be sent via an HTTP GET</li>
-						<li class="fragment">http://myapi/graphql?query={me{name}}</li>
-						<li class="fragment">Query variables can be sent as a JSON-encoded string</li>
-						<li class="fragment">additional query parameter called variables</li>
-						<li class="fragment">operationName query parameter can be used to control which one should be executed</li>
-					</ul>
-				</section>
-				<section>
-					<h2>POST</h2>
-					<p>GraphQL POST request should use the application/json content type</p>
-					<img src="./images/post.png" alt="">
-					<ul>
-						<li class="fragment">operationName and variables are optional fields</li>
-						<li class="fragment">operationName is only required if multiple operations are present</li>
-						<li class="fragment">Use "application/graphql" Content-Type header </li>
-
-					</ul>
-				</section>
-				<section>
-					<h2>Response</h2>
-					<ul>
-						<li class="fragment">A query might result in some data and some errors</li>
-						<li class="fragment">Response should returned in the body as JSON format</li>
-						<li class="fragment">If there were no errors returned, the "errors" field should not be present on the response</li>
-						<li class="fragment">data field would be included even there was an error during execution</li>
-
-					</ul>
-					<p>
-						<small>
-							<a href="https://graphql.github.io/learn/serving-over-http/">Serving over http</a>
-						</small>
-					</p>
-				</section>
-				<section>
-					<h2>GraphiQL</h2>
-					<img src="./images/graphiQL.png" alt="">
-					<ul>
-						<li class="fragment">GraphiQL is useful during testing and development</li>
-						<li class="fragment">should be disabled in production by default</li>
-						<li class="fragment">For NodeJS, consider
-							<a href="https://github.com/graphql/express-graphql">express-graphql</a> or
-							<a href="https://github.com/apollostack/graphql-server">graphql-server</a>.</li>
-					</ul>
-				</section>
-
-			</section>
-
 			<section>
 				<section>
 					<h2>Thinking in GraphQL</h2>
@@ -991,12 +1066,13 @@
 					<h2>When to consider GraphQL</h2>
 				</section>
 				<section>
+					<h2>GraphQL</h2>
 					<ul>
 						<li class="fragment">When overfetching and underfetching is a problem</li>
 						<li class="fragment">Need to enables rapid product development</li>
 						<li class="fragment">Tired of managing different version of API</li>
 						<li class="fragment">Too many endpoints</li>
-						<li class="fragment">you can use REST and GraphQL side by side</li>
+						<li class="fragment">You can use REST and GraphQL side by side</li>
 					</ul>
 					<aside class="notes">
 						<p> With GraphQL, it is possible to completely redesign the UI of an app without needing to touch the backend.</p>
@@ -1013,6 +1089,7 @@
 					<h1>GraphQL FAQ</h1>
 				</section>
 				<section>
+					<h2>FAQ</h2>
 					<ul>
 						<li class="fragment">Is GraphQL a Database Technology?</li>
 						<li class="fragment">Is GraphQL only for React / Javascript Developers?</li>
@@ -1029,27 +1106,27 @@
 				</section>
 			</section>
 			<section>
-					<section>
-						<h1>Summary 2</h1>
-					</section>
-					<section>
-						<h2>So far...</h2>
-						<ul>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-						</ul>
-					</section>
+				<section>
+					<h1>Summary 3</h1>
 				</section>
-				
+				<section>
+					<h2>So far...</h2>
+					<ul>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+			</section>
+
 			<section>
 				<section>
 					<h2>Quiz Time</h2>
 				</section>
 				<section>
-					<p>What is Never type?</p>
+					<p>What is graphQL?</p>
 				</section>
 			</section>
 
@@ -1085,6 +1162,9 @@
 						<a href="https://blog.graph.cool/top-5-reasons-to-use-graphql-b60cfa683511">Top 5 Reasons to Use GraphQL</a>
 					</li>
 					<li>
+						<a href="https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405">Schema Stitching</a>
+					</li>
+					<li>
 						<a href="https://www.youtube.com/watch?v=lAJWHHUz8_8">Fun fun Fun video</a>
 					</li>
 					<li>
@@ -1097,9 +1177,11 @@
 						<a href="https://www.robinwieruch.de/react-with-graphql-tutorial/">A complete React with GraphQL Tutorial
 						</a>
 					</li>
+					<li>
+						<a href="https://medium.freecodecamp.org/rest-apis-are-rest-in-peace-apis-long-live-graphql-d412e559d8e4">Long Live GraphQL</a>
+					</li>
 				</ul>
 			</section>
-
 			<section style="text-align: left;">
 				<h1>Thank you</h1>
 				<p>
