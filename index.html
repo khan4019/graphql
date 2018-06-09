@@ -120,7 +120,7 @@
 				<section>
 					<h2>REST</h2>
 					<ul>
-						<li>Widely accepted Standard to design API</li>
+						<li>Widely accepted to design API</li>
 						<li>Offers stateless server</li>
 						<li>Structured access to resources</li>
 					</ul>
@@ -288,23 +288,26 @@
 					</p>
 				</section>
 				<section>
-					<h2>Arguments anywhere</h2>
-					<p> GraphQL, every field and nested object can get its own set of arguments</p>
+					<h2>Arguments Anywhere</h2>
+					<p>
+						<small>GraphQL, every field and nested object can get its own set of arguments</small>
+					</p>
 					<img src="./images/arguments2.png" alt="">
-					<p class="fragment">one query can replace multiple api</p>
+					<p class="fragment">One query can replace multiple api</p>
 				</section>
 			</section>
 			<section>
 				<h2>GraphQL Playground</h2>
 				<p>
-					<a target="_blank" href="https://legacy.graphqlbin.com/RVIn">Online</a>
-				</p>
-				<p>
-					<a target="_blank" href="https://developer.github.com/v4/explorer/">github graphQL</a>
-				</p>
-				<p>
 					<a href="https://github.com/prismagraphql/graphql-playground">GraphQL IDE</a>
 				</p>
+				<p>
+					<a target="_blank" href="https://legacy.graphqlbin.com/RVIn">Try it Online</a>
+				</p>
+				<p>
+					<a target="_blank" href="https://developer.github.com/v4/explorer/">Github graphQL</a>
+				</p>
+
 			</section>
 			<section>
 				<section>
@@ -313,11 +316,11 @@
 				<section>
 					<h2>So far...</h2>
 					<ul>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
+						<li class="fragment">REST very rigid cause overfetching or Underfetching</li>
+						<li class="fragment">GraphQL is a front end focused API Technology</li>
+						<li class="fragment">Provides exactly what data needed</li>
+						<li class="fragment">Add those fields that you want to use</li>
+						<li class="fragment">Can provide argument anywhere</li>
 					</ul>
 				</section>
 			</section>
@@ -351,7 +354,7 @@
 				<section>
 					<h2>Fragments</h2>
 					<p>Don't Repeat use fragments</p>
-					<img src="./images/fragment.png" alt="">
+					<img src="./images/fragment2.png" alt="">
 					<br>
 					<p>
 						<small>
@@ -411,10 +414,18 @@
 					<h2>Meta Field</h2>
 					<ul>
 						<li class="fragment">Determine how to handle that data on the client</li>
-						<li class="fragment">Request __typename, a meta field, at any point in a query</li>
+						<li class="fragment">Request
+							<code>__typename</code>, a meta field, at any point in a query</li>
 						<li class="fragment">Will return the name of the object type </li>
 					</ul>
 					<img class="fragment" src="./images/metaField.png" alt="">
+					<aside class="notes">
+						<p>three dots are used for fragments</p>
+						<p>also with inline fragments</p>
+						<p>
+							<a href="https://stackoverflow.com/questions/34828418/what-do-3-dots-periods-ellipsis-in-a-relay-graphql-query-mean/34838089">three dots</a>
+						</p>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -424,9 +435,11 @@
 				<section>
 					<h2>Mutation</h2>
 					<ul>
-						<li class="fragment">Mutation is for changing data. similar to POST</li>
+						<li class="fragment">Mutation is for changing data. similar to
+							<code>POST</code>
+						</li>
 						<li class="fragment">Used to create, update or delete data</li>
-						<li class="fragment">Don't use Get request to modify data</li>
+						<!-- <li class="fragment">Don't use Get request to modify data</li> -->
 						<li class="fragment">Use nested field to get return from mutation</li>
 						<li class="fragment">The structure is almost similar to queries</li>
 						<li class="fragment">Include the word
@@ -477,6 +490,9 @@
 				<section>
 					<h2>Field Doesn't exists</h2>
 					<img src="./images//fieldNotExists.png" alt="">
+					<p>
+						<small>There is no error code. Everything is 200 and read error message</small>
+					</p>
 				</section>
 				<section>
 					<h2>Fragment refer itself</h2>
@@ -500,11 +516,11 @@
 				</section>
 				<section>
 					<ul>
-						<li class="fragment">REST have end point and you can cache based on parameter</li>
+						<li class="fragment1">REST have end point and you can cache based on parameter</li>
 						<li class="fragment">GraphQL doesn't have uniquely identifiable end point</li>
 						<li class="fragment">Assign Globally unique ID</li>
 					</ul>
-					<img src="./images/uniqueId.png" alt="">
+					<img class="fragment" src="./images/uniqueId.png" alt="">
 					<br>
 					<p>
 						<small>
@@ -562,18 +578,18 @@
 				</section>
 				<section>
 					<img src="./images/apollo.png" alt="">
-				</section>
-				<section>
-					<img src="./images/apolloReact.png" alt="">
-				</section>
-				<section>
-					<img src="./images/react-apollo.png" alt="">
 					<p>
 						<small>
 							<a href="https://www.apollographql.com/docs/react/essentials/queries.html">Apollo Queries</a>
 						</small>
 					</p>
 				</section>
+				<section>
+					<img src="./images/apolloReact.png" alt="">
+				</section>
+				<!-- <section>
+					<img src="./images/react-apollo.png" alt="">					
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -582,11 +598,13 @@
 				<section>
 					<h2>So far...</h2>
 					<ul>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
+						<li class="fragment">Use Query Fragment to reduce duplicate</li>
+						<li class="fragment">Use variable in the query</li>
+						<li class="fragment">
+							<code>Mutation</code> for Post(create, update, delete)</li>
+						<li class="fragment">Everything is 200. No error code</li>
+						<li class="fragment">Use UniqueID for caching</li>
+						<li class="fragment">Apollo Client for quick development in client side</li>
 					</ul>
 				</section>
 			</section>
@@ -598,7 +616,7 @@
 				<section>
 					<p>What is
 						<code>QL</code> in
-						<code>GraphQl</code>?</p>
+						<code>GraphQL</code>?</p>
 				</section>
 			</section>
 			<section>
@@ -681,7 +699,9 @@
 					<img src="./images//schema.png" alt="">
 					<ul>
 						<li class="fragment">Character is a GraphQL Object Type</li>
-						<li class="fragment">name and appearsIn are fields on Character type</li>
+						<li class="fragment">
+							<code>name</code>,
+							<code>appearsIn</code> are fields on Character type</li>
 						<li class="fragment">String is one of the built-in scalar types </li>
 						<li class="fragment">String! means that the field is non-nullable</li>
 						<li class="fragment">[Episode] represents an array of Episode objects</li>
@@ -703,6 +723,8 @@
 						<li class="fragment">Interface</li>
 						<li class="fragment">Union Types</li>
 					</ul>
+					<br>
+					<br>
 					<p>
 						<small>
 							<a href="https://graphql.github.io/learn/schema/">Schema types</a>
@@ -751,8 +773,8 @@
 				<section>
 					<h2>Execution Process</h2>
 					<ul>
-						<li>Before Executing, Query is validated</li>
-						<li class="fragment">GraphQL query is executed by a GraphQL server </li>
+						<li>GraphQL query is executed by a GraphQL server</li>
+						<li class="fragment">Before Executing, Query is validated</li>
 						<li class="fragment">Result mirrors the shape of the requested query</li>
 						<li class="fragment">Typically returns result as JSON</li>
 						<li class="fragment">Needs a type system to execute Query</li>
@@ -872,6 +894,51 @@
 			</section>
 			<section>
 				<section>
+					<h1>Authorization</h1>
+				</section>
+				<section>
+					<h2>Authorization</h2>
+					<p>Delegate authorization logic to business logic layer</p>
+					<img src="./images/authBad.png" alt="">
+					<p> It is tempting to place authorization logic in the GraphQL layer like this</p>
+					<p>We would need to duplicate this code for each entry point into the service</p>
+					<br>
+					<p>
+						<small>
+							<a href="https://graphql.github.io/learn/authorization/">Authorization</a>
+						</small>
+					</p>
+					<aside class="notes">
+						<p>Authorization is a type of business logic that describes whether a given user/session/context has permission to perform
+							an action or see a piece of data.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Focus on Query</h2>
+					<img src="./images/authGood.png" alt="">
+				</section>
+				<section>
+					<h2>Authentication</h2>
+					<ul>
+						<li class="fragment">GraphQL doesn’t really make a prescription about how you handle authentication</li>
+						<li class="fragment">Can use the methods we are familiar with from REST. </li>
+						<li class="fragment">In graphql-js set the token on the context</li>
+						<li class="fragment">Every resolver receives as its third argument</li>
+					</ul>
+					<p>
+						<small>
+							<a href="https://blog.pusher.com/handling-authentication-in-graphql/">Handling authentication in GraphQL</a>
+						</small>
+					</p>
+					<p>
+						<small>
+							<a href="https://dev-blog.apollodata.com/a-guide-to-authentication-in-graphql-e002a4039d1">A guide to GraphQL authentication</a>
+						</small>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
 					<h1>Serving over Http</h1>
 					<p>Rest vs GraphQL</p>
 				</section>
@@ -900,7 +967,7 @@
 					<img style="height: 150px;" src="./images/get.png" alt="">
 					<ul>
 						<li class="fragment">This request could be sent via an HTTP GET</li>
-						<li class="fragment">http://myapi/graphql?query={me{name}}</li>
+						<li class="fragment"><code>http://myapi/graphql?query={me{name}}</code></li>
 						<!-- <li class="fragment">Query variables can be sent as a JSON-encoded string</li> -->
 						<!-- <li class="fragment">additional query parameter called variables</li> -->
 						<li class="fragment">Use
@@ -947,51 +1014,7 @@
 					</ul>
 				</section> -->
 			</section>
-			<section>
-				<section>
-					<h1>Authorization</h1>
-				</section>
-				<section>
-					<h2>Authorization</h2>
-					<p>Delegate authorization logic to business logic layer</p>
-					<img src="./images/authBad.png" alt="">
-					<p> It is tempting to place authorization logic in the GraphQL layer like this</p>
-					<p>We would need to duplicate this code for each entry point into the service</p>
-					<br>
-					<p>
-						<small>
-							<a href="https://graphql.github.io/learn/authorization/">Authorization</a>
-						</small>
-					</p>
-					<aside class="notes">
-						<p>Authorization is a type of business logic that describes whether a given user/session/context has permission to perform
-							an action or see a piece of data.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Focus on Query</h2>
-					<img src="./images/authGood.png" alt="">
-				</section>
-				<section>
-					<h2>Authentication</h2>
-					<ul>
-						<li class="fragment">GraphQL doesn’t really make a prescription about how you handle authentication</li>
-						<li class="fragment">Can use the methods we are familiar with from REST. </li>
-						<li class="fragment">In graphql-js set the token on the context</li>
-						<li class="fragment">Every resolver receives as its third argument</li>
-					</ul>
-					<p>
-						<small>
-							<a href="https://blog.pusher.com/handling-authentication-in-graphql/">Handling authentication in GraphQL</a>
-						</small>
-					</p>
-					<p>
-						<small>
-							<a href="https://dev-blog.apollodata.com/a-guide-to-authentication-in-graphql-e002a4039d1">A guide to GraphQL authentication</a>
-						</small>
-					</p>
-				</section>
-			</section>
+
 			<section>
 				<h1>Security</h1>
 				<br>
@@ -1039,7 +1062,7 @@
 					<img src="./images/think1.png" alt="" class="fragment">
 				</section>
 				<section>
-					<p>Fetch the "preview info" for the first 20 drafts in the main account</p>
+					<p><small>Fetch the <code>previewInfo</code> for the first 20 drafts in the main account</small></p>
 					<img src="./images/think2.png" alt="">
 				</section>
 				<section>
@@ -1051,15 +1074,15 @@
 						<li class="fragment">Check Authorization</li>
 					</ul>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>One source of truth</h2>
 
 					<img class="medium-image" src="./images/think3.png" alt="">
 					<p>
-						<small>all entry points (REST, GraphQL, and RPC) into the system will be processed with the same validation, authorization,
+						<small>All entry points (REST, GraphQL, and RPC) into the system will be processed with the same validation, authorization,
 							and error handling rules.</small>
 					</p>
-				</section>
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -1112,11 +1135,12 @@
 				<section>
 					<h2>So far...</h2>
 					<ul>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
+						<li class="fragment">Schema Definition needs Object Types</li>
+						<li class="fragment">Each field has a backend function called resolver</li>
+						<li class="fragment">While resolving puts result in a key-value</li>
+						<li class="fragment">Delegate authorization logic to business logic layer</li>
+						<li class="fragment">Consider GraphQL when overfetching and underfetching is a problem</li>
+						<li class="fragment">GraphQL and REST could live side by side</li>
 					</ul>
 				</section>
 			</section>
@@ -1181,6 +1205,28 @@
 						<a href="https://medium.freecodecamp.org/rest-apis-are-rest-in-peace-apis-long-live-graphql-d412e559d8e4">Long Live GraphQL</a>
 					</li>
 				</ul>
+			</section>
+			<section>
+				<section>
+					<h1>Free Tip</h1>
+				</section>
+				<section>
+					<p>Tight on food budget</p>
+					<img class="fragment" src="./images/banana.jpg" alt="">
+				</section>
+				<section>
+					<img src="./images/banana-single.jpg" alt="">
+				</section>
+				<section>
+					<p>Want to save even more...</p>
+					<img class="fragment" src="./images/meetup.jpg" alt="">
+				</section>
+				<section>
+					<img src="./images/tshirt.jpeg" alt="">
+				</section>
+				<section>
+					<img src="./images/gym.jpg" alt="">
+				</section>
 			</section>
 			<section style="text-align: left;">
 				<h1>Thank you</h1>
